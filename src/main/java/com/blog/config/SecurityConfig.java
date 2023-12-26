@@ -26,6 +26,10 @@ public class SecurityConfig{
         http
                 .csrf()
                 .disable()
+//                .authorizeHttpRequests()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
                     .anyRequest()
                         .authenticated()
