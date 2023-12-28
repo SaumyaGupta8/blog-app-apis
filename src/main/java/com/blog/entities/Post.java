@@ -1,10 +1,7 @@
 package com.blog.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -16,6 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Post {
 
     @Id
@@ -33,6 +31,7 @@ public class Post {
     private Category category;
     @ManyToOne
     private User user;
+
 
 //    public Integer getPostId() {
 //        return postId;
