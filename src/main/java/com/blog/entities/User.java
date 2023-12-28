@@ -15,7 +15,7 @@ import java.util.*;
 @AllArgsConstructor
 @Getter
 @Setter
-
+@Builder
 public class User implements UserDetails {
 
     @Id

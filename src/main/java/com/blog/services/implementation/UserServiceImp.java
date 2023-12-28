@@ -30,7 +30,7 @@ public class UserServiceImp implements UserService {
         User user = this.dtoToUser(userDto);
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userRepo.save(user);
-        return userToDto(user);
+        return this.modelMapper.map(user, UserDto.class);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class UserServiceImp implements UserService {
         user.setAbout(userDto.getAbout());
         userRepo.save(user);
 
-        return userToDto(user);
+        return this.modelMapper.map(user, UserDto.class);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class UserServiceImp implements UserService {
 
         User user = this.userRepo.findById(userId).orElseThrow(() ->
                 new ResourceNotFoundException("user", "id", userId));
-        return userToDto(user);
+        return this.modelMapper.map(user, UserDto.class);
     }
 
     @Override
