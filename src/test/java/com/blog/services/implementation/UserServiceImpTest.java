@@ -4,6 +4,7 @@ import com.blog.entities.User;
 import com.blog.exceptions.ResourceNotFoundException;
 import com.blog.payloads.UserDto;
 import com.blog.repositories.UserRepo;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -23,35 +24,14 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 class UserServiceImpTest {
 
+    private static UserDto userDto;
+    private static User user;
     @Mock
     private UserRepo userRepo;
-
     @Mock
     private ModelMapper modelMapper;
-
     @Mock
     private PasswordEncoder passwordEncoder;
-
-    @InjectMocks
-    private UserServiceImp userService;
-
-    UserDto userDto = UserDto.builder()
-            .id(1)
-            .name("John Doe")
-            .email("john.doe@example.com")
-            .about("About John")
-            .password("hashedPassword")  // This should be the hashed password
-            .build();;
-
-    // Mocking behavior for findById
-    User user = User.builder()
-            .id(1)
-            .name("John Doe")
-            .email("john.doe@example.com")
-            .about("About John")
-            .password("hashedPassword")  // This should be the hashed password
-            .build();
-
     @InjectMocks
     private UserServiceImp userService;
 
